@@ -247,6 +247,7 @@ local config = {
                         --   end,
                         -- },
                         ["psliwka/vim-smoothie"] = {},
+                        ["rking/ag.vim"] = {},
                 },
                 -- All other entries override the require("<key>").setup({...}) call for default plugins
                 ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
