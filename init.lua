@@ -168,9 +168,11 @@ local config = {
                                 -- "sumneko_lua",
                         },
                         timeout_ms = 1000, -- default format timeout
-                        -- filter = function(client) -- fully override the default formatting function
-                        --   return true
-                        -- end
+                        filter = function(client) -- fully override the default formatting function
+                                if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
+                                if vim.bo.filetype == "vue" then return client.name == "null-ls" end
+                                return true
+                        end,
                 },
                 -- easily add or disable built in mappings added during LSP attaching
                 mappings = {
@@ -259,12 +261,11 @@ local config = {
                         ["kana/vim-textobj-user"] = {},
                         ["andyl/vim-textobj-elixir"] = {},
                         ["EdenEast/nightfox.nvim"] = {},
-                        
                 },
                 -- All other entries override the require("<key>").setup({...}) call for default plugins
                 ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
                         -- config variable is the default configuration table for the setup function call
-                        -- local null_ls = require "null-ls"
+                        local null_ls = require "null-ls"
 
                         -- Check supported formatters and linters
                         -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -272,7 +273,7 @@ local config = {
                         config.sources = {
                                 -- Set a formatter
                                 -- null_ls.builtins.formatting.stylua,
-                                -- null_ls.builtins.formatting.prettier,
+                                null_ls.builtins.formatting.prettier,
                         }
                         return config -- return final config table
                 end,
@@ -285,7 +286,18 @@ local config = {
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
                 ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-                        -- ensure_installed = { "prettier", "stylua" },
+                        setup_handlers = {
+                                prettier = function()
+                                        require("null-ls").register(require("null-ls").builtins.formatting.prettier.with {
+                                                condition = function(utils)
+                                                        return utils.root_has_file "package.json"
+                                                            or utils.root_has_file ".prettierrc"
+                                                            or utils.root_has_file ".prettierrc.json"
+                                                            or utils.root_has_file ".prettierrc.js"
+                                                end,
+                                        })
+                                end,
+                        },
                 },
                 ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
                         -- ensure_installed = { "python" },
