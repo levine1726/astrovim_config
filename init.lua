@@ -218,6 +218,9 @@ local config = {
                         ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
                         ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+                        ["<leader>v"] = { "<cmd>vsp<CR>", desc = "Vertical window split" },
+                        ["<leader>h"] = { "<cmd>sp<CR>", desc = "Horizontal window split" },
+                        ["<leader>wq"] = { "<cmd>wq<CR>", desc = "Write and quit out of file" },
                         -- quick save
                         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
                 },
