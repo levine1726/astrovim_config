@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "nightfox",
+        colorscheme = "carbonfox",
 
         -- Add highlight groups in any theme
         highlights = {
