@@ -1,0 +1,37 @@
+{
+  "Create Table (Ecto)": {
+    "prefix": [
+      "ct",
+      "create-table"
+    ],
+    "body": [
+      "create table(:${1:name}) do",
+      "  timestamps()",
+      "end"
+    ],
+    "description": "creates a table using the ecto DSL"
+  },
+  "Add Column (Ecto)": {
+    "prefix": [
+      "ac",
+      "add-column"
+    ],
+    "body": [
+      "add(:${1:column_name}, :${2:data_type})"
+    ],
+    "description": "adds a new column using the ecto DSL"
+  },
+  "Insert Into": {
+    "prefix": [
+      "insert_into"
+    ],
+    "body": [
+      "execute(\"\"\"",
+      "  INSERT INTO ${1:table_name} (inserted_at, updated_at)",
+      "  VALUES",
+      "  ((now() at time zone 'utc'), (now() at time zone 'utc'));",
+      "\"\"\")"
+    ],
+    "description": "creates a table using the ecto DSL"
+  }
+}
