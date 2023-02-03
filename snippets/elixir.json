@@ -33,5 +33,15 @@
       "\"\"\")"
     ],
     "description": "creates a table using the ecto DSL"
+  },
+  "Alter Table (Ecto)": {
+    "prefix": [
+      "alter_table"
+    ],
+    "body": [
+      "alter table(:${1:name}) do",
+      "end"
+    ],
+    "description": "alters a table using the ecto DSL"
   }
 }
