@@ -2,7 +2,7 @@
   "Create Table (Ecto)": {
     "prefix": [
       "ct",
-      "create-table"
+      "create_table"
     ],
     "body": [
       "create table(:${1:name}) do",
