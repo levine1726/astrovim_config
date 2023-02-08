@@ -21,6 +21,16 @@
     ],
     "description": "adds a new column using the ecto DSL"
   },
+  "Add Column with Table Reference (Ecto)": {
+    "prefix": [
+      "acr",
+      "add-column-with-table-reference"
+    ],
+    "body": [
+      "add(:${1:column_name}_id, references(:${1:column_name}s, on_delete: :nothing))"
+    ],
+    "description": "adds a new column id with a reference to another table using the ecto DSL"
+  },
   "Insert Into": {
     "prefix": [
       "insert_into"
