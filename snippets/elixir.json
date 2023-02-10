@@ -37,9 +37,9 @@
     ],
     "body": [
       "execute(\"\"\"",
-      "  INSERT INTO ${1:table_name} (inserted_at, updated_at)",
+      "  INSERT INTO ${1:table_name} (${2:field}, inserted_at, updated_at)",
       "  VALUES",
-      "  ((now() at time zone 'utc'), (now() at time zone 'utc'));",
+      "  (${0:value}, (now() at time zone 'utc'), (now() at time zone 'utc'));",
       "\"\"\")"
     ],
     "description": "creates a table using the ecto DSL"
