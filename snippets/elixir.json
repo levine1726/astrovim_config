@@ -11,6 +11,29 @@
     ],
     "description": "creates a table using the ecto DSL"
   },
+  "New Ecto Schema File": {
+    "prefix": [
+      "schema"
+    ],
+    "body": [
+      "defmodule ${1:Module} do",
+      "  use Ecto.Schema",
+      "  import Ecto.Changeset",
+      "",
+      "  schema \"${2:table_name}\" do",
+      "",
+      "    timestamps()",
+      "  end",
+      "",
+      "  @doc false",
+      "  def changeset(struct, attrs) do",
+      "    struct",
+      "    |> cast(attrs, [])",
+      "  end",
+      "end"
+    ],
+    "description": "adds a new schema file for a table"
+  },
   "Add Column (Ecto)": {
     "prefix": [
       "ac",
