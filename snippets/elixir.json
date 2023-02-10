@@ -44,6 +44,16 @@
     ],
     "description": "adds a new column using the ecto DSL"
   },
+  "Add new field": {
+    "prefix": [
+      "field",
+      "nf"
+    ],
+    "body": [
+      "field(:${1:column_name}, :${2:data_type})"
+    ],
+    "description": "adds a new field for a schema"
+  },
   "Add Column with Table Reference (Ecto)": {
     "prefix": [
       "acr",
