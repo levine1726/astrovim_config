@@ -64,6 +64,25 @@
     ],
     "description": "adds a new column id with a reference to another table using the ecto DSL"
   },
+  "Add Unique Index": {
+    "prefix": [
+      "ui",
+      "unique-index"
+    ],
+    "body": [
+      "create unique_index(:${1:table}, [:${2:column}])"
+    ],
+    "description": "adds a new unique index to the provided table"
+  },
+  "Add Index": {
+    "prefix": [
+      "index"
+    ],
+    "body": [
+      "create index(:${1:table}, [:${2:column}])"
+    ],
+    "description": "adds a new index to the provided table"
+  },
   "Insert Into": {
     "prefix": [
       "insert_into"
