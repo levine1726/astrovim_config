@@ -16,7 +16,6 @@
       "schema"
     ],
     "body": [
-      "defmodule ${1:Module} do",
       "  use Ecto.Schema",
       "  import Ecto.Changeset",
       "",
@@ -29,8 +28,7 @@
       "  def changeset(struct, attrs) do",
       "    struct",
       "    |> cast(attrs, [])",
-      "  end",
-      "end"
+      "  end"
     ],
     "description": "adds a new schema file for a table"
   },
