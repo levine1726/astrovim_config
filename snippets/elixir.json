@@ -103,5 +103,16 @@
       "end"
     ],
     "description": "alters a table using the ecto DSL"
+  },
+  "Add dataloader configuration": {
+    "prefix": [
+      "dataloader"
+    ],
+    "body": [
+      "def data, do: Dataloader.Ecto.new(Bitfreighter.Repo, query: &query/2)",
+      "",
+      "def query(queryable, _params), do: queryable"
+    ],
+    "description": "sets up the data/query functions needed to configure a gql dataloader"
   }
 }
