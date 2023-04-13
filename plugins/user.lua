@@ -9,4 +9,6 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  { "psliwka/vim-smoothie", lazy = false },
+  { "rking/ag.vim",         lazy = false },
 }
