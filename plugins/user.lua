@@ -11,4 +11,5 @@ return {
   -- },
   { "psliwka/vim-smoothie", lazy = false },
   { "rking/ag.vim", lazy = false },
+  { "bluz71/vim-moonfly-colors", lazy = false },
 }
