@@ -27,6 +27,13 @@ return {
     ["<leader>v"] = { "<cmd>vsp<CR>", desc = "Vertical window split" },
     ["<leader>h"] = { "<cmd>sp<CR>", desc = "Horizontal window split" },
     ["<leader>wq"] = { "<cmd>wq<CR>", desc = "Write and quit out of file" },
+
+    -- Copy an individual line's Github link
+    ["<leader>go"] = {":GithubLink<Enter>", desc = "Copy Github Link"},
+  },
+  v = {
+    -- Copy a range of lines' Github link
+    ["<leader>go"] = {":GithubLink<Enter>", desc = "Copy Github Link"},
   },
   t = {
     -- setting a mapping to false will disable it
