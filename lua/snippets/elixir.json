@@ -1,0 +1,118 @@
+{
+  "Create Table (Ecto)": {
+    "prefix": [
+      "ct",
+      "create_table"
+    ],
+    "body": [
+      "create table(:${1:name}) do",
+      "  timestamps()",
+      "end"
+    ],
+    "description": "creates a table using the ecto DSL"
+  },
+  "New Ecto Schema File": {
+    "prefix": [
+      "schema"
+    ],
+    "body": [
+      "  use Ecto.Schema",
+      "  import Ecto.Changeset",
+      "",
+      "  schema \"${2:table_name}\" do",
+      "",
+      "    timestamps()",
+      "  end",
+      "",
+      "  @doc false",
+      "  def changeset(struct, attrs) do",
+      "    struct",
+      "    |> cast(attrs, [])",
+      "  end"
+    ],
+    "description": "adds a new schema file for a table"
+  },
+  "Add Column (Ecto)": {
+    "prefix": [
+      "ac",
+      "add-column"
+    ],
+    "body": [
+      "add(:${1:column_name}, :${2:data_type})"
+    ],
+    "description": "adds a new column using the ecto DSL"
+  },
+  "Add new field": {
+    "prefix": [
+      "field",
+      "nf"
+    ],
+    "body": [
+      "field(:${1:column_name}, :${2:data_type})"
+    ],
+    "description": "adds a new field for a schema"
+  },
+  "Add Column with Table Reference (Ecto)": {
+    "prefix": [
+      "acr",
+      "add-column-with-table-reference"
+    ],
+    "body": [
+      "add(:${1:column_name}_id, references(:${1:column_name}s, on_delete: :nothing))"
+    ],
+    "description": "adds a new column id with a reference to another table using the ecto DSL"
+  },
+  "Add Unique Index": {
+    "prefix": [
+      "ui",
+      "unique-index"
+    ],
+    "body": [
+      "create unique_index(:${1:table}, [:${2:column}])"
+    ],
+    "description": "adds a new unique index to the provided table"
+  },
+  "Add Index": {
+    "prefix": [
+      "index"
+    ],
+    "body": [
+      "create index(:${1:table}, [:${2:column}])"
+    ],
+    "description": "adds a new index to the provided table"
+  },
+  "Insert Into": {
+    "prefix": [
+      "insert_into"
+    ],
+    "body": [
+      "execute(\"\"\"",
+      "  INSERT INTO ${1:table_name} (${2:field}, inserted_at, updated_at)",
+      "  VALUES",
+      "  (${0:value}, (now() at time zone 'utc'), (now() at time zone 'utc'));",
+      "\"\"\")"
+    ],
+    "description": "creates a table using the ecto DSL"
+  },
+  "Alter Table (Ecto)": {
+    "prefix": [
+      "alter_table"
+    ],
+    "body": [
+      "alter table(:${1:name}) do",
+      "end"
+    ],
+    "description": "alters a table using the ecto DSL"
+  },
+  "Add dataloader configuration": {
+    "prefix": [
+      "dataloader"
+    ],
+    "body": [
+      "def data, do: Dataloader.Ecto.new(Bitfreighter.Repo, query: &query/2)",
+      "",
+      "def query(queryable, _params), do: queryable"
+    ],
+    "description": "sets up the data/query functions needed to configure a gql dataloader"
+  }
+}
